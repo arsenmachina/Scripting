@@ -5,13 +5,13 @@
 . ./src/add_book.sh 
 . ./src/get_book.sh
 . ./src/edit_book.sh
-
+. ./src/deleteBook.sh
 
     print_menu ;
 
    case $usr_choise in 
         1 ) PrintMenu         ;;
-        2 ) echo "2"          ;;
+        2 ) DeleteBook        ;;
         3 ) _add              ;;
         4 ) PrepeareeditBook  ;;
         5 ) give_book         ;;
