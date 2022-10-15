@@ -13,7 +13,7 @@ function print_menu() {
         2: Удаление книги.\n
         3: Добавление книги.\n
         4: Редактирование книги.\n
-        5: Одалжить книгу.\n
+        5: Одолжить книгу.\n
         6: Возврат книги.\n
         7: Интерактивное редактирование одной или более записей в консоли.\n
         8: Моя операция..\n"
@@ -30,12 +30,16 @@ valid_input_menu() {
 
     if [[ `echo -n "$usr_choise" | wc -c ` > 1 ]] || [ -z "$usr_choise"] 2> /dev/null  # Блок проверки на колл-во символов и пустую строку
     then 
-    printf "ERROR: Please, choise numbers from 1 to 8!\n";
+    printf "ERROR: Please, choise numbers from menu!\n";
     return -1
     fi
     #########################################
 
-    regular_check='[^1-8]'                  #Регулярка исключающая все символы кроме целых 1-8
+    if [[ "$1" == 13 ]] 2>/dev/null; then   regular_check='[^1-3]' ; #Регулярка исключающая все символы кроме целых 1-3 для принта
+
+    else
+    regular_check='[^1-8]' #Регулярка исключающая все символы кроме целых 1-8 для меню
+    fi                       
     if [[ $usr_choise == $regular_check ]] 2>/dev/null
     then
         printf "ERROR: You can't to use spec.symbols and string or use numbers not diapason in menu!\n"

@@ -15,7 +15,7 @@ function _add {
     else
     id=`tail -n 7 ./db.txt | grep ID | head -n 1 | awk '{print $3}'`   #find id in db
     id=`expr $id + 1`;  #increment id
-    echo $id
+    echo "ID: $id"
     fi
 
     
